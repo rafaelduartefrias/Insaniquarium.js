@@ -4,9 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const bg = new Image();
     const MenuBarIMG = new Image();
     bg.src = './img/aquarium1.jpg';
-    MenuBarIMG.src = './img/menubar.gif'
+    MenuBarIMG.src = './img/menubar.gif';
+    
     function DrawMenuBar() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        if (bg.complete) {
+            ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+        }
+        
         const menubarWidth = 640;
         const menubarHeight = 75;
         const x = (canvas.width - menubarWidth) / 2;
@@ -15,6 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
            ctx.drawImage(MenuBarIMG, x, y, menubarWidth, menubarHeight);
         }
     }
-    MenuBarIMG.onload = DrawMenuBar;
-    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+
+    let bgLoaded = false;
+    let menuLoaded = false;
+    
+    bg.onload = function() {
+        bgLoaded = true;
+        if (menuLoaded) DrawMenuBar();
+    };
+    
+    MenuBarIMG.onload = function() {
+        menuLoaded = true;
+        if (bgLoaded) DrawMenuBar();
+    };
 });
