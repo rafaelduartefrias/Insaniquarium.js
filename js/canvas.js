@@ -15,6 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
            ctx.drawImage(MenuBarIMG, x, y, menubarWidth, menubarHeight);
         }
     }
-    MenuBarIMG.onload = drawMenuBar;
+    MenuBarIMG.onload = DrawMenuBar;
     ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 });
