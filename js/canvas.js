@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const x = (canvas.width - menubarWidth) / 2;
         const y = 20;
         if (MenuBarIMG.complete) {
-           ctx.drawImage(MenuBarIMG, x, y, hudWidth, hudHeight);
+           ctx.drawImage(MenuBarIMG, x, y, menubarWidth, menubarHeight);
         }
     }
     MenuBarIMG.onload = drawMenuBar;
