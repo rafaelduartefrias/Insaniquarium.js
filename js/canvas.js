@@ -16,12 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const menubarWidth = 640;
         const menubarHeight = 75;
         const x = (canvas.width - menubarWidth) / 2;
-        const y = 20;
+        const y = 0; // Changed from 20 to 0 for top of screen
         if (MenuBarIMG.complete) {
            ctx.drawImage(MenuBarIMG, x, y, menubarWidth, menubarHeight);
         }
     }
-
     let bgLoaded = false;
     let menuLoaded = false;
     
